@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { useCart } from "./CardContext";
-import Footer from "./Footer";
 import BouncingVideo from "./BouncingVideo";
 
 export default function BagPage({ transitionRef }) {
@@ -14,15 +13,11 @@ export default function BagPage({ transitionRef }) {
   const emptyRef = useRef(null);
   const listRef = useRef(null);
 
-  // Animate in after curtain lifts
   useEffect(() => {
     transitionRef.current?.leave();
-
     const targets =
       cartItems.length > 0 ? listRef.current?.children : [emptyRef.current];
-
     if (!targets) return;
-
     gsap.set(targets, { y: 40, opacity: 0 });
     gsap.to(targets, {
       y: 0,
@@ -51,8 +46,10 @@ export default function BagPage({ transitionRef }) {
         paddingBottom: "4rem",
       }}
     >
-      {/* Header */}
-      <div style={{ padding: "0 4rem", marginBottom: "3rem" }}>
+      {/* ── Header ── */}
+      <div
+        style={{ padding: "0 clamp(1rem, 4vw, 4rem)", marginBottom: "3rem" }}
+      >
         <div
           style={{
             display: "flex",
@@ -63,11 +60,11 @@ export default function BagPage({ transitionRef }) {
           <h1
             style={{
               fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "19rem",
+              fontSize: "clamp(3rem, 12vw, 19rem)",
               fontWeight: 600,
               textTransform: "uppercase",
               lineHeight: 0.9,
-              letterSpacing: "15px",
+              letterSpacing: "clamp(2px, 1vw, 15px)",
             }}
           >
             Your Bag
@@ -85,8 +82,6 @@ export default function BagPage({ transitionRef }) {
             </p>
           )}
         </div>
-
-        {/* Divider */}
         <div
           style={{
             height: "5px",
@@ -107,20 +102,17 @@ export default function BagPage({ transitionRef }) {
               flexDirection: "column",
               alignItems: "flex-start",
               justifyContent: "center",
-
               marginTop: "7rem",
-
-              marginLeft: "4rem",
+              marginLeft: "clamp(1rem, 4vw, 4rem)",
               opacity: 0,
             }}
           >
             <p
               style={{
                 fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontSize: "13rem",
+                fontSize: "clamp(2rem, 8vw, 13rem)",
                 fontWeight: "bolder",
-
-                letterSpacing: "-10px",
+                letterSpacing: "clamp(-3px, -0.5vw, -10px)",
               }}
             >
               Not even one thing?
@@ -128,12 +120,10 @@ export default function BagPage({ transitionRef }) {
             <p
               style={{
                 color: "#433c38",
-
                 fontFamily: "'Bricolage Grotesque', sans-serif",
-                fontSize: "13rem",
+                fontSize: "clamp(2rem, 8vw, 13rem)",
                 fontWeight: "bolder",
-
-                letterSpacing: "-10px",
+                letterSpacing: "clamp(-3px, -0.5vw, -10px)",
               }}
             >
               That's sad.
@@ -143,22 +133,19 @@ export default function BagPage({ transitionRef }) {
             style={{
               marginTop: "2rem",
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "row",
-              marginLeft: "4rem",
+              marginLeft: "clamp(1rem, 4vw, 4rem)",
             }}
           >
             <button
               onClick={handleBack}
               style={{
                 marginTop: "2rem",
-                padding: "1rem 4rem",
+                padding: "clamp(0.6rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 4rem)",
                 backgroundColor: "var(--base-300)",
                 color: "var(--base-100)",
                 border: "none",
                 fontFamily: "'PP Neue Montreal', sans-serif",
-                fontSize: "4rem",
+                fontSize: "clamp(1.2rem, 3vw, 4rem)",
                 fontWeight: 600,
                 cursor: "pointer",
                 letterSpacing: "0.05em",
@@ -168,14 +155,10 @@ export default function BagPage({ transitionRef }) {
               Shop Now <i className="ri-arrow-right-up-line" />
             </button>
           </div>
-          <div
-            className="footer-content"
-            style={{
-              marginTop: "8rem",
-            }}
-          >
-            <div className="line1 h"></div>
 
+          {/* Footer */}
+          <div className="footer-content" style={{ marginTop: "8rem" }}>
+            <div className="line1 h"></div>
             <div className="footer-foot">
               <div className="foot">
                 <p>Created By</p>
@@ -211,7 +194,7 @@ export default function BagPage({ transitionRef }) {
       {/* ── Cart items ── */}
       {cartItems.length > 0 && (
         <>
-          <div style={{ padding: "0 4rem" }}>
+          <div style={{ padding: "0 clamp(1rem, 4vw, 4rem)" }}>
             <div ref={listRef}>
               {cartItems.map((item) => (
                 <CartRow
@@ -223,7 +206,7 @@ export default function BagPage({ transitionRef }) {
               ))}
             </div>
 
-            {/* ── Summary ── */}
+            {/* Summary */}
             <div
               style={{
                 marginTop: "5rem",
@@ -231,69 +214,48 @@ export default function BagPage({ transitionRef }) {
                 borderTop: "2px solid rgba(20,20,20,0.1)",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
                 gap: "1rem",
                 width: "100%",
               }}
             >
+              {[
+                ["Subtotal", `$${totalPrice.toFixed(2)}`],
+                ["Shipping", "Free"],
+              ].map(([label, val]) => (
+                <div
+                  key={label}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: "'PP Neue Montreal', sans-serif",
+                      fontSize: "clamp(1.2rem, 2.5vw, 2.5rem)",
+                      opacity: 0.5,
+                    }}
+                  >
+                    {label}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "'PP Neue Montreal', sans-serif",
+                      fontSize: "clamp(1.2rem, 2.5vw, 2.5rem)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {val}
+                  </p>
+                </div>
+              ))}
               <div
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
                   width: "100%",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "'PP Neue Montreal', sans-serif",
-                    fontSize: "2.5rem",
-                    opacity: 0.5,
-                  }}
-                >
-                  Subtotal
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'PP Neue Montreal', sans-serif",
-                    fontSize: "2.5em",
-                    fontWeight: 600,
-                  }}
-                >
-                  ${totalPrice.toFixed(2)}
-                </p>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  width: "100%",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "'PP Neue Montreal', sans-serif",
-                    fontSize: "2.2rem",
-                    opacity: 0.5,
-                  }}
-                >
-                  Shipping
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'PP Neue Montreal', sans-serif",
-                    fontSize: "2.2rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Free
-                </p>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  marginTop: "3rem",
+                  marginTop: "2rem",
                   borderTop: "1px solid rgba(20,20,20,0.15)",
                   paddingTop: "1rem",
                 }}
@@ -301,7 +263,7 @@ export default function BagPage({ transitionRef }) {
                 <p
                   style={{
                     fontFamily: "'PP Neue Montreal', sans-serif",
-                    fontSize: "2.4rem",
+                    fontSize: "clamp(1.4rem, 2.5vw, 2.4rem)",
                     fontWeight: 700,
                   }}
                 >
@@ -310,24 +272,22 @@ export default function BagPage({ transitionRef }) {
                 <p
                   style={{
                     fontFamily: "'PP Neue Montreal', sans-serif",
-                    fontSize: "2.4rem",
+                    fontSize: "clamp(1.4rem, 2.5vw, 2.4rem)",
                     fontWeight: 700,
                   }}
                 >
                   ${totalPrice.toFixed(2)}
                 </p>
               </div>
-
               <button
                 style={{
                   width: "100%",
-
                   padding: "1.25rem",
                   backgroundColor: "var(--base-300)",
                   color: "var(--base-100)",
                   border: "none",
                   fontFamily: "'PP Neue Montreal', sans-serif",
-                  fontSize: "1.2rem",
+                  fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
                   fontWeight: 600,
                   cursor: "pointer",
                   letterSpacing: "0.05em",
@@ -336,14 +296,13 @@ export default function BagPage({ transitionRef }) {
               >
                 CHECKOUT <i className="ri-arrow-right-up-line" />
               </button>
-
               <button
                 onClick={handleBack}
                 style={{
                   background: "none",
                   border: "none",
                   fontFamily: "'PP Neue Montreal', sans-serif",
-                  fontSize: "1.9rem",
+                  fontSize: "clamp(1rem, 1.5vw, 1.9rem)",
                   fontWeight: 600,
                   cursor: "pointer",
                   opacity: 0.4,
@@ -355,14 +314,10 @@ export default function BagPage({ transitionRef }) {
               </button>
             </div>
           </div>
-          <div
-            className="footer-content"
-            style={{
-              marginTop: "8rem",
-            }}
-          >
-            <div className="line1 h"></div>
 
+          {/* Footer */}
+          <div className="footer-content" style={{ marginTop: "8rem" }}>
+            <div className="line1 h"></div>
             <div className="footer-foot">
               <div className="foot">
                 <p>Created By</p>
@@ -398,21 +353,19 @@ export default function BagPage({ transitionRef }) {
   );
 }
 
-// ── Single cart row ──────────────────────────────────────────────────────
 function CartRow({ item, onRemove, onQtyChange }) {
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr ",
-
+        gridTemplateColumns: "1fr 1fr",
         alignItems: "center",
         padding: "2rem 0",
-        height: "30rem",
+        height: "clamp(12rem, 20vw, 30rem)",
         borderBottom: "1px solid rgba(20,20,20,0.1)",
       }}
     >
-      {/* Name + Category + Qty controls */}
+      {/* Left — name + price */}
       <div
         style={{
           display: "flex",
@@ -428,19 +381,18 @@ function CartRow({ item, onRemove, onQtyChange }) {
             justifyContent: "flex-end",
             alignItems: "flex-start",
             flexDirection: "column",
-            gap: "1.5rem",
+            gap: "1rem",
             height: "100%",
           }}
         >
           <span
             style={{
               fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "5rem",
+              fontSize: "clamp(1.5rem, 3.5vw, 5rem)",
               fontWeight: 500,
-              maxWidth: "20px",
               textTransform: "uppercase",
               letterSpacing: "1px",
-              lineHeight: "4.4rem",
+              lineHeight: 1.1,
             }}
           >
             {item.name}
@@ -458,18 +410,16 @@ function CartRow({ item, onRemove, onQtyChange }) {
         <div
           style={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            marginRight: "2rem",
             height: "100%",
-            marginLeft: "20rem",
           }}
         >
           <p
             style={{
               fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "3rem",
+              fontSize: "clamp(1.2rem, 2vw, 3rem)",
               fontWeight: 600,
             }}
           >
@@ -477,7 +427,8 @@ function CartRow({ item, onRemove, onQtyChange }) {
           </p>
         </div>
       </div>
-      {/* Thumbnail */}
+
+      {/* Right — image + controls */}
       <div
         style={{
           display: "flex",
@@ -486,29 +437,29 @@ function CartRow({ item, onRemove, onQtyChange }) {
           height: "100%",
           overflow: "hidden",
           alignItems: "center",
-          marginLeft: "2rem",
-          gap: "7rem",
+          paddingLeft: "1rem",
+          gap: "1rem",
         }}
       >
         <img
           src={item.primary}
           alt={item.name}
           style={{
-            width: "300px",
+            width: "clamp(60px, 10vw, 200px)",
             height: "100%",
             objectFit: "cover",
-            marginLeft: "10rem",
+            flexShrink: 0,
           }}
         />
         <div
           style={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             alignItems: "center",
             flexDirection: "column",
-            marginRight: "4rem",
-            gap: "17rem",
             height: "100%",
+            paddingTop: "0.5rem",
+            paddingBottom: "0.5rem",
           }}
         >
           <button
@@ -517,34 +468,25 @@ function CartRow({ item, onRemove, onQtyChange }) {
               background: "none",
               border: "none",
               cursor: "pointer",
-
-              fontSize: "2.5rem",
+              fontSize: "clamp(1rem, 1.5vw, 2rem)",
               fontFamily: "'PP Neue Montreal', sans-serif",
               fontWeight: 600,
               textDecoration: "underline",
-              textUnderlineOffset: "7px",
+              textUnderlineOffset: "4px",
             }}
           >
             Remove
           </button>
-          {/* Qty stepper */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "2.5rem",
-              marginBottom: "0.5rem",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <button
               onClick={() => onQtyChange(item.qty - 1)}
               style={{
-                width: "32px",
-                height: "32px",
+                width: "28px",
+                height: "28px",
                 border: "none",
                 background: "none",
                 cursor: "pointer",
-                fontSize: "3rem",
+                fontSize: "1.5rem",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -555,24 +497,23 @@ function CartRow({ item, onRemove, onQtyChange }) {
             <span
               style={{
                 fontFamily: "'PP Neue Montreal', sans-serif",
-                fontSize: "3rem",
+                fontSize: "clamp(1rem, 1.5vw, 2rem)",
                 fontWeight: 600,
-                minWidth: "24px",
+                minWidth: "20px",
                 textAlign: "center",
               }}
             >
               {item.qty}
             </span>
-
             <button
               onClick={() => onQtyChange(item.qty + 1)}
               style={{
-                width: "32px",
-                height: "32px",
+                width: "28px",
+                height: "28px",
                 border: "none",
                 background: "none",
                 cursor: "pointer",
-                fontSize: "3rem",
+                fontSize: "1.5rem",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
