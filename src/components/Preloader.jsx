@@ -7,19 +7,17 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { CustomEase } from "gsap/all";
-
+import bag1 from "../assets/bag1.jpg";
+import bag3 from "../assets/bag3.jpg";
+import bag44 from "../assets/bag44.jpg";
+import bag2 from "../assets/bag2.jpg";
+import bag11 from "../assets/bag11.jpg";
+import bag55 from "../assets/bag55.jpg";
 gsap.registerPlugin(SplitText, CustomEase);
 CustomEase.create("hop", "0.8,0,0.2,1");
 CustomEase.create("hop2", "0.9,0,0.1,1");
 
-const IMAGES = [
-  "/bag1.jpg",
-  "/bag3.jpg",
-  "/bag44.jpg",
-  "/bag2.jpg",
-  "/bag11.jpg",
-  "/bag4.jpg",
-];
+const IMAGES = [bag1, bag3, bag44, bag2, bag11, bag55];
 
 const INIT_ROTATIONS = [7.5, -2.5, -10, 12.5, -5, 5];
 

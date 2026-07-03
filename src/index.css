@@ -395,7 +395,9 @@ nav {
   align-items: center;
   gap: 1rem;
 }
-
+.product-detail {
+  min-height: 300px; /* important */
+}
 .product-name {
   display: flex;
   width: 100%;
