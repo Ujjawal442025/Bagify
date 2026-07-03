@@ -281,6 +281,16 @@ function AppInner() {
           path="/about"
           element={<AboutPage transitionRef={transitionRef} />}
         />
+        <Route
+          path="*"
+          element={
+            <HomePage
+              transitionRef={transitionRef}
+              navRef={navRef}
+              heroRef={heroRef}
+            />
+          }
+        />
       </Routes>
     </>
   );
