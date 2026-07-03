@@ -40,6 +40,8 @@ function runHeroAnimation({ heroEl, navEl }) {
     visibility: "visible",
   });
   const headerH1 = heroEl.querySelector(".header h1");
+  if (!headerH1) return;
+
   gsap.set(headerH1, { visibility: "hidden" });
   const split = SplitText.create(headerH1, {
     type: "chars",
@@ -177,28 +179,40 @@ function runHeroAnimation({ heroEl, navEl }) {
 
 // ── HomePage ───────────────────────────────────────────────────────────────
 function HomePage({ transitionRef, navRef, heroRef }) {
-  const location = useLocation();
   const [preloaderDone, setPreloaderDone] = useState(false);
+
+  const handlePreloaderComplete = useCallback(() => {
+    setPreloaderDone(true);
+  }, []);
 
   useEffect(() => {
     if (!preloaderDone) return;
 
     const heroEl = heroRef.current;
     const navEl = navRef.current;
+
     if (!heroEl || !navEl) return;
 
     const cleanup = runHeroAnimation({ heroEl, navEl });
-    return cleanup;
-  }, [preloaderDone, heroRef, navRef]);
 
-  const handlePreloaderComplete = useCallback(() => setPreloaderDone(true), []);
+    return () => {
+      if (cleanup) cleanup();
+    };
+  }, [preloaderDone, heroRef, navRef]);
 
   return (
     <>
-      {!skipPreloader && <Preloader onComplete={handlePreloaderComplete} />}
-      <Hero ref={heroRef} transitionRef={transitionRef} />
-      <Products transitionRef={transitionRef} />
-      <Footer />
+      {/* PRELOADER ALWAYS FIRST LOAD */}
+      {!preloaderDone && <Preloader onComplete={handlePreloaderComplete} />}
+
+      {/* MAIN CONTENT ONLY AFTER PRELOADER */}
+      {preloaderDone && (
+        <>
+          <Hero ref={heroRef} transitionRef={transitionRef} />
+          <Products transitionRef={transitionRef} />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
