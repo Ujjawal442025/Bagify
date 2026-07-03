@@ -178,8 +178,7 @@ function runHeroAnimation({ heroEl, navEl }) {
 // ── HomePage ───────────────────────────────────────────────────────────────
 function HomePage({ transitionRef, navRef, heroRef }) {
   const location = useLocation();
-  const skipPreloader = location.state?.skipPreloader === true;
-  const [preloaderDone, setPreloaderDone] = useState(skipPreloader);
+  const [preloaderDone, setPreloaderDone] = useState(false);
 
   useEffect(() => {
     if (!preloaderDone) return;
