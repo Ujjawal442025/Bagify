@@ -20,20 +20,7 @@ CustomEase.create("hop2", "0.9,0,0.1,1");
 const IMAGES = [bag1, bag3, bag44, bag2, bag11, bag55];
 
 const INIT_ROTATIONS = [7.5, -2.5, -10, 12.5, -5, 5];
-// 🔥 preload helper
-const preloadImages = (images) => {
-  return Promise.all(
-    images.map(
-      (src) =>
-        new Promise((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = resolve;
-          img.onerror = resolve;
-        }),
-    ),
-  );
-};
+
 export default function Preloader({ onComplete }) {
   const preloaderRef = useRef(null);
   const headingRef = useRef(null);
