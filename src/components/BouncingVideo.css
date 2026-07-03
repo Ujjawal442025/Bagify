@@ -1,0 +1,38 @@
+.bouncing-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  pointer-events: none;
+  z-index: 1000;
+
+  will-change: transform;
+}
+
+.bouncing-video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .bouncing-video {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bouncing-video {
+    width: 140px;
+    height: 140px;
+  }
+}
