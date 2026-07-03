@@ -276,7 +276,7 @@ function AppInner() {
 export default function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/Bagify">
         <ScrollToTop />
         <AppInner />
       </BrowserRouter>

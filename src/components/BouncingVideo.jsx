@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./BouncingVideo.css";
-
-const gifs = ["/video2.gif", "/video3.gif", "/video4.gif"];
+import video2 from "../assets/video2.gif";
+import video3 from "../assets/video3.gif";
+import video4 from "../assets/video4.gif";
+const gifs = ["video2", "video3", "video4"];
 
 export default function BouncingVideo() {
   const circleRef = useRef(null);

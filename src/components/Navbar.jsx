@@ -2,7 +2,7 @@
 import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./CardContext";
-
+import logo from "../assets/logo.png";
 const Navbar = forwardRef(function Navbar({ onMenuOpen, transitionRef }, ref) {
   const { totalItems } = useCart();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Navbar = forwardRef(function Navbar({ onMenuOpen, transitionRef }, ref) {
     <nav ref={ref}>
       <div className="nav-logo">
         <a href="#">
-          <img src="./logo.png" alt="Bagify" />
+          <img src={logo} alt="Bagify" />
         </a>
       </div>
 

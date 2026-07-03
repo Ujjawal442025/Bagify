@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
+
 const Hero = forwardRef(function Hero({ transitionRef }, ref) {
   const navigate = useNavigate();
   const goToShop = (e) => {

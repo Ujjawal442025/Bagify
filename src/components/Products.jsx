@@ -2,33 +2,50 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
-
+import bag1 from "../assets/bag1.jpg";
+import bag2 from "../assets/bag2.jpg";
+import bag3 from "../assets/bag3.jpg";
+import bag4 from "../assets/bag4.jpg";
+import bag5 from "../assets/bag5.jpg";
+import bag6 from "../assets/bag6.jpg";
+import bag7 from "../assets/bag7.png";
+import bag8 from "../assets/bag8.png";
+import bag9 from "../assets/bag9.jpg";
+import bag10 from "../assets/bag10.jpg";
+import bag11 from "../assets/bag11.jpg";
+import bag22 from "../assets/bag22.jpg";
+import bag33 from "../assets/bag33.jpg";
+import bag44 from "../assets/bag44.jpg";
+import bag55 from "../assets/bag55.jpg";
+import bag66 from "../assets/bag66.jpg";
+import bag77 from "../assets/bag77.jpg";
+import bag88 from "../assets/bag88.jpg";
 const ROW1 = [
   {
     id: "soft-motion",
-    primary: "./bag1.jpg",
-    hover: "./bag11.jpg",
+    primary: bag1,
+    hover: bag11,
     name: "Soft Motion",
     price: "$36.50",
   },
   {
     id: "metro-carry",
-    primary: "./bag2.jpg",
-    hover: "./bag22.jpg",
+    primary: bag2,
+    hover: bag22,
     name: "Metro Carry",
     price: "$25.50",
   },
   {
     id: "modern-nomad",
-    primary: "./bag3.jpg",
-    hover: "./bag33.jpg",
+    primary: bag3,
+    hover: bag33,
     name: "Modern Nomad",
     price: "$30.00",
   },
   {
     id: "daily-form",
-    primary: "./bag4.jpg",
-    hover: "./bag44.jpg",
+    primary: bag4,
+    hover: bag44,
     name: "Daily Form",
     price: "$30.50",
   },
@@ -37,54 +54,57 @@ const ROW1 = [
 const ROW2_LEFT = [
   {
     id: "daily-form",
-    primary: "./bag5.jpg",
-    hover: "./bag55.jpg",
+    primary: bag5,
+    hover: bag55,
     name: "Daily Form",
     price: "$30.50",
     imgClass: "img1",
   },
   {
     id: "daily-form",
-    primary: "./bag6.jpg",
-    hover: "./bag66.jpg",
+    primary: bag6,
+    hover: bag66,
     name: "Daily Form",
     price: "$30.50",
     imgClass: "img2",
   },
 ];
+
 const ROW2_RIGHT = [
   {
     id: "daily-form",
-    primary: "./bag7.png",
-    hover: "./bag77.jpg",
+    primary: bag7,
+    hover: bag77,
     name: "Daily Form",
     price: "$30.50",
     imgClass: "img3",
   },
 ];
+
 const ROW3_LEFT = [
   {
     id: "daily-form",
-    primary: "./bag8.png",
-    hover: "./bag88.jpg",
+    primary: bag8,
+    hover: bag88,
     name: "Daily Form",
     price: "$30.50",
     imgClass: "img3",
   },
 ];
+
 const ROW3_RIGHT = [
   {
     id: "daily-form",
-    primary: "./bag9.jpg",
-    hover: "./bag22.jpg",
+    primary: bag9,
+    hover: bag22,
     name: "Daily Form",
     price: "$30.50",
     imgClass: "img2",
   },
   {
     id: "daily-form",
-    primary: "./bag10.jpg",
-    hover: "./bag66.jpg",
+    primary: bag10,
+    hover: bag66,
     name: "Daily Form",
     price: "$30.50",
     imgClass: "img1",
