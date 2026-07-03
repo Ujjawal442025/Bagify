@@ -40,7 +40,6 @@ function runHeroAnimation({ heroEl, navEl }) {
     visibility: "visible",
   });
   const headerH1 = heroEl.querySelector(".header h1");
-  if (!headerH1) return;
   gsap.set(headerH1, { visibility: "hidden" });
   const split = SplitText.create(headerH1, {
     type: "chars",
@@ -268,16 +267,6 @@ function AppInner() {
         <Route
           path="/about"
           element={<AboutPage transitionRef={transitionRef} />}
-        />
-        <Route
-          path="*"
-          element={
-            <HomePage
-              transitionRef={transitionRef}
-              navRef={navRef}
-              heroRef={heroRef}
-            />
-          }
         />
       </Routes>
     </>
