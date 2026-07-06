@@ -188,11 +188,12 @@ nav {
   display: flex;
   justify-content: center;
   transform: translate(-50%, -50%);
-  width: 89%; /* matches line: left 6% + right 5% = 89% */
+  width: 100%;
+  padding: 0 5%; /* same as line: left 6% right 5% — gives breathing room */
   height: max-content;
   overflow: hidden;
   text-transform: uppercase;
-  font-size: clamp(2.5rem, 30vw, 32rem);
+  font-size: clamp(2.5rem, 28vw, 32rem);
   line-height: 0.85;
 }
 .line {
