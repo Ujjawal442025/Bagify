@@ -188,7 +188,7 @@ nav {
   display: flex;
   justify-content: center;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 90%;
   height: max-content;
   overflow: hidden;
   text-transform: uppercase;
