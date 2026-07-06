@@ -1,16 +1,163 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# BAGIFY
 
-Currently, two official plugins are available:
+A premium animated shopping experience built with React, GSAP and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Live Demo
 
-## React Compiler
+https://ujjawal442025.github.io/Bagify/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Preview
+
+> Add screenshots below.
+
+![Home](./screenshots/home.png)
+
+![Product](./screenshots/product.png)
+
+![Bag](./screenshots/bag.png)
+
+---
+
+# About
+
+Bagify is a modern premium shopping website inspired by high-end fashion brands.
+
+The project focuses on creating an immersive browsing experience using smooth page transitions, cinematic preloaders and advanced GSAP animations instead of traditional ecommerce layouts.
+
+Although the products are static, the UI behaves like a premium commercial website.
+
+---
+
+# Features
+
+- Premium GSAP Preloader
+- Custom Page Transition Animation
+- SplitText Hero Animation
+- Smooth Product Reveal Animation
+- Custom Cursor
+- Product Detail Pages
+- Shopping Bag System
+- Responsive Layout
+- React Router Navigation
+- GitHub Pages Deployment
+
+---
+
+# Built With
+
+- React
+- Vite
+- GSAP
+- React Router DOM
+- CSS3
+
+---
+
+# Folder Structure
+
+```
+src/
+
+components/
+assets/
+App.jsx
+main.jsx
+index.css
+```
+
+---
+
+# Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/Ujjawal442025/Bagify.git
+```
+
+Go inside
+
+```bash
+cd Bagify
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run locally
+
+```bash
+npm run dev
+```
+
+Build
+
+```bash
+npm run build
+```
+
+Deploy
+
+```bash
+npm run deploy
+```
+
+---
+
+# What I Learned
+
+While building Bagify I practiced
+
+- Advanced GSAP timelines
+- SplitText animations
+- React component architecture
+- React Router
+- Custom page transitions
+- Deployment using GitHub Pages
+- Performance optimization
+- Asset management in Vite
+
+---
+
+# Future Improvements
+
+- Checkout Page
+- Payment Gateway
+- Backend Integration
+- User Authentication
+- Wishlist
+- Product Filtering
+- Search
+- Dark Mode
+
+---
+
+# Author
+
+## Ujjawal Kumar Jha
+
+Frontend Developer
+
+GitHub
+
+https://github.com/Ujjawal442025
+
+LinkedIn
+
+(Add your LinkedIn profile)
+https://www.linkedin.com/in/ujjawal-kumar-jha-03110b371/
+
+---
+
+# License
+
+This project is for learning and portfolio purposes.

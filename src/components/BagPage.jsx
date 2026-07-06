@@ -411,7 +411,7 @@ function CartRow({ item, onRemove, onQtyChange }) {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "flex-end",
             flexDirection: "column",
             height: "100%",
           }}
@@ -445,7 +445,7 @@ function CartRow({ item, onRemove, onQtyChange }) {
           src={item.primary}
           alt={item.name}
           style={{
-            width: "clamp(60px, 10vw, 200px)",
+            width: "65%",
             height: "100%",
             objectFit: "cover",
             flexShrink: 0,
