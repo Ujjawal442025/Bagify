@@ -73,46 +73,6 @@ index.css
 
 ---
 
-# Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/Ujjawal442025/Bagify.git
-```
-
-Go inside
-
-```bash
-cd Bagify
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Run locally
-
-```bash
-npm run dev
-```
-
-Build
-
-```bash
-npm run build
-```
-
-Deploy
-
-```bash
-npm run deploy
-```
-
----
-
 # What I Learned
 
 While building Bagify I practiced
@@ -153,7 +113,6 @@ https://github.com/Ujjawal442025
 
 LinkedIn
 
-(Add your LinkedIn profile)
 https://www.linkedin.com/in/ujjawal-kumar-jha-03110b371/
 
 ---
