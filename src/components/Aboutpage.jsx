@@ -58,84 +58,18 @@ export default function AboutPage({ transitionRef }) {
   };
 
   return (
-    <div style={{ backgroundColor: "var(--base-200)", minHeight: "100vh" }}>
+    <div className="about-page">
       {/* ── HERO HEADER — full width ── */}
-      <div
-        ref={headerRef}
-        style={{
-          width: "100%",
-          paddingTop: "10rem",
-          paddingBottom: "4rem",
-          paddingLeft: "4rem",
-          paddingRight: "4rem",
-          borderBottom: "1px solid rgba(20,20,20,0.1)",
-          opacity: 0,
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'PP Neue Montreal', sans-serif",
-            fontSize: "1rem",
-            fontWeight: 600,
-            letterSpacing: "0.15em",
-            opacity: 0.4,
-            textTransform: "uppercase",
-            marginBottom: "2rem",
-          }}
-        >
-          Est. 2026 — New Delhi, India
-        </p>
-
-        <h1
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: "clamp(4rem, 12vw, 14rem)",
-            fontWeight: 800,
-            textTransform: "uppercase",
-            lineHeight: 0.88,
-            letterSpacing: "-4px",
-            color: "var(--base-300)",
-          }}
-        >
-          About Bagify
-        </h1>
+      <div ref={headerRef} className="about-header">
+        <p className="about-header-meta">Est. 2026 — New Delhi, India</p>
+        <h1 className="about-header-title">About Bagify</h1>
       </div>
 
       {/* ── SECTION 1: Who we are ── */}
-      <div
-        ref={addSection}
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "4rem",
-          padding: "6rem 4rem",
-          borderBottom: "1px solid rgba(20,20,20,0.1)",
-        }}
-      >
+      <div ref={addSection} className="about-section-grid">
         <div>
-          <p
-            style={{
-              fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "1rem",
-              fontWeight: 700,
-              letterSpacing: "0.15em",
-              opacity: 0.35,
-              textTransform: "uppercase",
-              marginBottom: "2rem",
-            }}
-          >
-            01 — Who We Are
-          </p>
-          <h2
-            style={{
-              fontFamily: "'Montserrat', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 4.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.05,
-              letterSpacing: "-2px",
-              textTransform: "uppercase",
-            }}
-          >
+          <p className="about-section-label">01 — Who We Are</p>
+          <h2 className="about-section-title">
             Designed to
             <br />
             carry your
@@ -143,34 +77,13 @@ export default function AboutPage({ transitionRef }) {
             whole world.
           </h2>
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
-            gap: "1.5rem",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "1.4rem",
-              lineHeight: 1.7,
-              opacity: 0.7,
-            }}
-          >
+        <div className="about-desc-col">
+          <p className="about-desc-p">
             Bagify was born out of a simple frustration — bags that looked good
             never worked well, and bags that worked well never looked good. We
             decided to fix that.
           </p>
-          <p
-            style={{
-              fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "1.4rem",
-              lineHeight: 1.7,
-              opacity: 0.7,
-            }}
-          >
+          <p className="about-desc-p">
             Founded by Ujjawal Kumar Jha in New Delhi, Bagify is a one-person
             studio obsessed with the intersection of utility and restraint.
             Every bag is designed to disappear into your life — not compete with
@@ -180,68 +93,19 @@ export default function AboutPage({ transitionRef }) {
       </div>
 
       {/* ── SECTION 2: Big quote ── */}
-      <div
-        ref={addSection}
-        style={{
-          padding: "8rem 4rem",
-          borderBottom: "1px solid rgba(20,20,20,0.1)",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: "clamp(2rem, 5vw, 6rem)",
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: "-3px",
-            maxWidth: "1100px",
-          }}
-        >
+      <div ref={addSection} className="about-quote-section">
+        <p className="about-quote-text">
           "We don't make statement pieces. We make pieces that let you make the
           statement."
         </p>
-        <p
-          style={{
-            fontFamily: "'PP Neue Montreal', sans-serif",
-            fontSize: "1.1rem",
-            opacity: 0.4,
-            marginTop: "2rem",
-            letterSpacing: "0.05em",
-          }}
-        >
-          — Ujjawal Kumar Jha, Founder
-        </p>
+        <p className="about-quote-author">— Ujjawal Kumar Jha, Founder</p>
       </div>
 
       {/* ── SECTION 3: Values — 3 columns ── */}
-      <div
-        ref={addSection}
-        style={{
-          padding: "6rem 4rem",
-          borderBottom: "1px solid rgba(20,20,20,0.1)",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'PP Neue Montreal', sans-serif",
-            fontSize: "1rem",
-            fontWeight: 700,
-            letterSpacing: "0.15em",
-            opacity: 0.35,
-            textTransform: "uppercase",
-            marginBottom: "4rem",
-          }}
-        >
-          02 — What We Stand For
-        </p>
+      <div ref={addSection} className="about-values-section">
+        <p className="about-values-label">02 — What We Stand For</p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "3rem",
-          }}
-        >
+        <div className="about-values-grid">
           {[
             {
               num: "I",
@@ -259,129 +123,36 @@ export default function AboutPage({ transitionRef }) {
               body: "No inflated price tags, no fake collaborations. Just well-made bags sold at prices that make sense.",
             },
           ].map((v) => (
-            <div
-              key={v.num}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.5rem",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "3.5rem",
-                  fontWeight: 800,
-                  opacity: 0.08,
-                  lineHeight: 1,
-                }}
-              >
-                {v.num}
-              </p>
-              <div
-                style={{
-                  height: "1px",
-                  backgroundColor: "var(--base-300)",
-                  opacity: 0.15,
-                }}
-              />
-              <h3
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "1.8rem",
-                  fontWeight: 800,
-                  textTransform: "uppercase",
-                  letterSpacing: "-0.5px",
-                }}
-              >
-                {v.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "'PP Neue Montreal', sans-serif",
-                  fontSize: "1.1rem",
-                  lineHeight: 1.7,
-                  opacity: 0.6,
-                }}
-              >
-                {v.body}
-              </p>
+            <div key={v.num} className="about-value-card">
+              <p className="about-value-num">{v.num}</p>
+              <div className="about-value-divider" />
+              <h3 className="about-value-title">{v.title}</h3>
+              <p className="about-value-body">{v.body}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── SECTION 4: Numbers ── */}
-      <div
-        ref={addSection}
-        style={{
-          padding: "6rem 4rem",
-          borderBottom: "1px solid rgba(20,20,20,0.1)",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "2rem",
-        }}
-      >
+      <div ref={addSection} className="about-stats-grid">
         {[
           { num: "10+", label: "Bags designed" },
           { num: "100%", label: "Made with intent" },
           { num: "01", label: "Designer" },
           { num: "∞", label: "Obsession with craft" },
         ].map((s) => (
-          <div
-            key={s.label}
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-          >
-            <p
-              style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: "clamp(3rem, 5vw, 6rem)",
-                fontWeight: 800,
-                letterSpacing: "-3px",
-                lineHeight: 1,
-              }}
-            >
-              {s.num}
-            </p>
-            <p
-              style={{
-                fontFamily: "'PP Neue Montreal', sans-serif",
-                fontSize: "1rem",
-                opacity: 0.45,
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-              }}
-            >
-              {s.label}
-            </p>
+          <div key={s.label} className="about-stat-card">
+            <p className="about-stat-num">{s.num}</p>
+            <p className="about-stat-label">{s.label}</p>
           </div>
         ))}
       </div>
 
       {/* ── SECTION 5: Process ── */}
-      <div
-        ref={addSection}
-        style={{
-          padding: "6rem 4rem",
-          borderBottom: "1px solid rgba(20,20,20,0.1)",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: "'PP Neue Montreal', sans-serif",
-            fontSize: "1rem",
-            fontWeight: 700,
-            letterSpacing: "0.15em",
-            opacity: 0.35,
-            textTransform: "uppercase",
-            marginBottom: "4rem",
-          }}
-        >
-          03 — How We Work
-        </p>
+      <div ref={addSection} className="about-process-section">
+        <p className="about-values-label">03 — How We Work</p>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="about-process-container">
           {[
             {
               step: "01",
@@ -406,94 +177,23 @@ export default function AboutPage({ transitionRef }) {
           ].map((p, i, arr) => (
             <div
               key={p.step}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "80px 1fr 1fr",
-                gap: "2rem",
-                alignItems: "center",
-                padding: "2.5rem 0",
-                borderBottom:
-                  i < arr.length - 1 ? "1px solid rgba(20,20,20,0.08)" : "none",
-              }}
+              className={`about-process-row ${
+                i < arr.length - 1 ? "bordered" : ""
+              }`}
             >
-              <p
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "1rem",
-                  fontWeight: 700,
-                  opacity: 0.25,
-                  letterSpacing: "0.1em",
-                }}
-              >
-                {p.step}
-              </p>
-              <h3
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: "2.2rem",
-                  fontWeight: 800,
-                  textTransform: "uppercase",
-                  letterSpacing: "-1px",
-                }}
-              >
-                {p.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "'PP Neue Montreal', sans-serif",
-                  fontSize: "1.1rem",
-                  lineHeight: 1.7,
-                  opacity: 0.6,
-                }}
-              >
-                {p.desc}
-              </p>
+              <p className="about-process-step">{p.step}</p>
+              <h3 className="about-process-title">{p.title}</h3>
+              <p className="about-process-desc">{p.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── SECTION 6: CTA ── */}
-      <div
-        ref={addSection}
-        style={{
-          padding: "8rem 4rem",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-        }}
-      >
-        <h2
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: "clamp(3rem, 7vw, 9rem)",
-            fontWeight: 800,
-            textTransform: "uppercase",
-            lineHeight: 0.9,
-            letterSpacing: "-4px",
-            maxWidth: "800px",
-          }}
-        >
-          Ready to carry something better?
-        </h2>
+      <div ref={addSection} className="about-cta-section">
+        <h2 className="about-cta-title">Ready to carry something better?</h2>
 
-        <button
-          onClick={goToHome}
-          style={{
-            padding: "1.25rem 3rem",
-            backgroundColor: "var(--base-300)",
-            color: "var(--base-100)",
-            border: "none",
-            fontFamily: "'PP Neue Montreal', sans-serif",
-            fontSize: "1.1rem",
-            fontWeight: 600,
-            cursor: "pointer",
-            letterSpacing: "0.05em",
-            textTransform: "uppercase",
-            whiteSpace: "nowrap",
-            alignSelf: "flex-end",
-          }}
-        >
+        <button onClick={goToHome} className="about-cta-btn">
           Shop Now <i className="ri-arrow-right-up-line" />
         </button>
       </div>

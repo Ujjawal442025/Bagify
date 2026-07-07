@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import Footer from "./Footer";
 import { useCart } from "./CardContext";
+
 import bag1 from "../assets/bag1.jpg";
 import bag2 from "../assets/bag2.jpg";
 import bag3 from "../assets/bag3.jpg";
@@ -13,6 +14,7 @@ import bag11 from "../assets/bag11.jpg";
 import bag22 from "../assets/bag22.jpg";
 import bag33 from "../assets/bag33.jpg";
 import bag44 from "../assets/bag44.jpg";
+
 CustomEase.create("hop", "0.8,0,0.2,1");
 
 export const PRODUCTS = [
@@ -124,7 +126,6 @@ export default function ProductDetail({ transitionRef }) {
     return () => tl.kill();
   }, [id]);
 
-  // ── KEY FIX: pass skipPreloader:true so HomePage skips preloader ──
   const handleBack = () => {
     transitionRef.current?.enter(() =>
       navigate("/", { state: { skipPreloader: true } }),
@@ -133,212 +134,61 @@ export default function ProductDetail({ transitionRef }) {
   };
 
   return (
-    <div
-      ref={pageRef}
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "var(--base-200)",
-        paddingTop: "7rem",
-      }}
-    >
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1.2fr 0.8fr",
-          gap: "4rem",
-          padding: "0 4rem 4rem",
-          maxWidth: "2500px",
-          margin: "3rem auto",
-        }}
-      >
-        {/* Image */}
-        <div
-          ref={imgRef}
-          style={{
-            width: "100%",
-            overflow: "hidden",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "2rem",
-          }}
-        >
+    <div ref={pageRef} className="product-page-wrapper">
+      <div className="product-grid-container">
+        {/* Left Side: Images */}
+        <div ref={imgRef} className="product-image-column">
           <img
             src={product.primary}
             alt={product.name}
-            style={{ width: "100%", height: "150vh", objectFit: "cover" }}
+            className="product-display-img"
           />
           <img
             src={product.hover}
             alt={product.name}
-            style={{ width: "100%", height: "150vh", objectFit: "cover" }}
+            className="product-display-img"
           />
         </div>
 
-        {/* Content */}
-        <div
-          ref={contentRef}
-          style={{
-            paddingTop: "2rem",
-            display: "flex",
-            flexDirection: "column",
-            position: "sticky",
-            top: "100px",
-            alignSelf: "start",
-            gap: "1.5rem",
-          }}
-        >
+        {/* Right Side: Sticky Content */}
+        <div ref={contentRef} className="product-content-column">
           {/* Back button */}
-          <button
-            onClick={handleBack}
-            style={{
-              zIndex: 10,
-              background: "none",
-              border: "none",
-              fontSize: "1.4rem",
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-              fontWeight: 600,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              color: "var(--base-300)",
-            }}
-          >
+          <button onClick={handleBack} className="back-to-shop-btn">
             <i className="ri-arrow-left-line"></i> Return to Shop
           </button>
 
-          <h1
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "clamp(2.5rem, 5vw, 8rem)",
-              fontWeight: 800,
-              lineHeight: 1.2,
-              letterSpacing: "5px",
-              textTransform: "uppercase",
-            }}
-          >
-            {product.name}
-          </h1>
+          <h1 className="product-title">{product.name}</h1>
 
-          <p
-            style={{
-              fontSize: "1rem",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              opacity: 0.5,
-            }}
-          >
-            • {product.category}
-          </p>
+          <p className="product-category">• {product.category}</p>
 
-          <p
-            style={{ fontSize: "4rem", letterSpacing: "2px", fontWeight: 600 }}
-          >
-            {product.price}
-          </p>
+          <p className="product-price">{product.price}</p>
 
-          <p
-            style={{
-              fontSize: "2rem",
-              lineHeight: 1.3,
-              opacity: 0.75,
-              maxWidth: "480px",
-              fontFamily: "'Bricolage Grotesque', sans-serif",
-            }}
-          >
-            {product.description}
-          </p>
+          <p className="product-description">{product.description}</p>
 
           {/* Quantity counter */}
-          <div
-            style={{
-              cursor: "pointer",
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "center",
-              gap: "2rem",
-            }}
-          >
-            <button
-              onClick={decrease}
-              style={{
-                width: "40px",
-                height: "40px",
-                fontSize: "3rem",
-                cursor: "pointer",
-                border: "none",
-                backgroundColor: "#f5ebde",
-              }}
-            >
+          <div className="quantity-counter-container">
+            <button onClick={decrease} className="counter-btn">
               <i className="ri-subtract-line"></i>
             </button>
-            <span
-              style={{
-                marginTop: "9px",
-                fontSize: "4rem",
-                fontWeight: "500",
-                minWidth: "80px",
-                fontFamily: "PP Neue Montreal",
-                textAlign: "center",
-              }}
-            >
-              {count}
-            </span>
-            <button
-              onClick={increase}
-              style={{
-                width: "40px",
-                height: "40px",
-                fontSize: "3rem",
-                cursor: "pointer",
-                border: "none",
-                backgroundColor: "#f5ebde",
-              }}
-            >
+            <span className="counter-value">{count}</span>
+            <button onClick={increase} className="counter-btn">
               <i className="ri-add-line"></i>
             </button>
           </div>
 
-          <div
-            style={{
-              height: "1px",
-              backgroundColor: "var(--base-300)",
-              opacity: 0.2,
-            }}
-          />
+          <div className="divider-line" />
 
-          <div>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                fontWeight: 700,
-                letterSpacing: "0.08em",
-                marginBottom: "0.75rem",
-                opacity: 0.5,
-              }}
-            >
-              DETAILS
-            </p>
-            {product.details.map((d, i) => (
-              <p
-                key={i}
-                style={{
-                  fontSize: "1.8rem",
-                  lineHeight: 2,
-                  borderBottom: "1px solid rgba(67, 53, 53, 0.74)",
-                  paddingBottom: "0.2rem",
-                  letterSpacing: "1.3px",
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: "700",
-                }}
-              >
-                {d}
+          {/* Details Section */}
+          <div className="details-section">
+            <p className="details-heading">DETAILS</p>
+            {product.details.map((detail, index) => (
+              <p key={index} className="detail-item-text">
+                {detail}
               </p>
             ))}
           </div>
 
+          {/* Add to Bag Button */}
           <button
             onClick={() => {
               if (count > 0) {
@@ -346,28 +196,10 @@ export default function ProductDetail({ transitionRef }) {
                 setCount(0);
               }
             }}
-            style={{
-              width: "100%",
-              padding: "1.25rem",
-              backgroundColor: "var(--base-300)",
-              color: "var(--base-100)",
-              border: "none",
-              fontFamily: "'PP Neue Montreal', sans-serif",
-              fontSize: "1.9rem",
-              fontWeight: 600,
-              cursor: "pointer",
-              letterSpacing: "0.05em",
-            }}
+            className="add-to-bag-submit"
           >
             ADD TO BAG ({count}){" "}
-            <i
-              className="ri-arrow-right-up-line"
-              style={{
-                fontFamily: "'PP Neue Montreal', sans-serif",
-                fontSize: "2.6rem",
-                fontWeight: 600,
-              }}
-            ></i>
+            <i className="ri-arrow-right-up-line add-to-bag-icon"></i>
           </button>
         </div>
       </div>
