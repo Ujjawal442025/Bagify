@@ -153,6 +153,7 @@ nav {
   font-size: 5rem;
   color: var(--base-100);
   font-weight: 900;
+  cursor: pointer;
 }
 .menu-btn {
   cursor: pointer;
@@ -445,10 +446,11 @@ nav {
 
 /* ─── FOOTER ─── */
 footer {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: var(--base-200);
   margin-top: 7rem;
+  overflow-y: hidden;
 }
 .line1 {
   height: 0.4rem;
@@ -505,6 +507,80 @@ footer {
   align-items: flex-start;
   flex-direction: column;
   gap: 1rem;
+}
+/*Shipping and Return*/
+.shippingreturn {
+  min-height: 100vh;
+  background-color: var(--base-200);
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+}
+.shipping {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 25%;
+  width: 50%;
+  flex-direction: column;
+  gap: 2rem;
+}
+.shipping-header h2 {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 4.4rem;
+}
+.shipping h3 {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 4rem;
+  letter-spacing: 1px;
+  line-height: 4.4rem;
+}
+
+.shipping h4,
+.return h4 {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  letter-spacing: 0;
+  line-height: 4.4rem;
+}
+.shipping p,
+.return p {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 3rem;
+  letter-spacing: 1px;
+}
+.shipping .bold {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-left: 3rem;
+  letter-spacing: 1px;
+  line-height: 3rem;
+}
+.return {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 25%;
+  width: 50%;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 9rem;
+}
+.return h3 {
+  font-family: "PP Neue Montreal", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 4.4rem;
 }
 
 /* ==========================================================
@@ -692,81 +768,161 @@ footer {
   .product-color {
     font-size: 0.8rem;
   }
-}
-footer {
-  height: 53vh;
-  width: 100%;
-  background-color: var(--base-200);
-  margin-top: 7rem;
-}
-.line1 {
-  height: 0.4rem;
-  width: 95%;
-  background-color: var(--base-300);
-  margin-left: 3%;
-}
-.footer-header {
-  display: flex;
-  justify-content: space-between;
+  footer {
+    min-height: 53vh;
+    width: 100%;
+    background-color: var(--base-200);
+    margin-top: 7rem;
+    overflow-y: hidden;
+  }
+  .line1 {
+    height: 0.4rem;
+    width: 95%;
+    background-color: var(--base-300);
+    margin-left: 3%;
+  }
+  .footer-header {
+    display: flex;
+    justify-content: space-between;
 
-  align-items: center;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-top: 1rem;
-  gap: 3rem;
-}
-.footer-main {
-  width: 100%;
-}
-.footer-main p {
-  font-size: 3.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  letter-spacing: -2px;
-}
-.copy p {
-  font-size: 3.5rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+    align-items: center;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 1rem;
+    gap: 3rem;
+  }
+  .footer-main {
+    width: 100%;
+  }
+  .footer-main p {
+    font-size: 3.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: -2px;
+  }
+  .copy p {
+    font-size: 3.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
 
-  letter-spacing: -4px;
-}
-.footer-main #hi {
-  color: #4b433e;
-}
-.creation {
-  margin-top: 20rem;
-  margin-left: 3%;
-}
-.creation p {
-  font-size: 1.6rem;
-}
-.h {
-  height: 0.1rem;
-  margin-top: 1.4rem;
+    letter-spacing: -4px;
+  }
+  .footer-main #hi {
+    color: #4b433e;
+  }
+  .creation {
+    margin-top: 20rem;
+    margin-left: 3%;
+  }
+  .creation p {
+    font-size: 1.6rem;
+  }
+  .h {
+    height: 0.1rem;
+    margin-top: 1.4rem;
+  }
+
+  .footer-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 3%;
+    gap: 1rem;
+    margin-top: 3%;
+  }
+  .footer-foot .foot a,
+  .footer-foot .foot p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+  }
+  .foot {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  /* SHipping & Return*/
+  /*Shipping and Return*/
+  .shippingreturn {
+    min-height: 100vh;
+    background-color: var(--base-200);
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    margin-left: 0;
+  }
+  .shipping {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 4%;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .shipping-header h2 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 3rem;
+  }
+  .shipping h3 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-top: 4rem;
+    letter-spacing: 1px;
+    line-height: 1rem;
+  }
+
+  .shipping h4,
+  .return h4 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 3rem;
+    letter-spacing: 0;
+    line-height: 2rem;
+  }
+  .shipping p,
+  .return p {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 3rem;
+    letter-spacing: 1px;
+    width: 90%;
+  }
+  .shipping .bold {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-left: 3rem;
+    letter-spacing: 1px;
+    line-height: 3rem;
+    width: 80%;
+  }
+  .return {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 4%;
+    width: 90%;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 9rem;
+  }
+  .return h3 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 4.4rem;
+  }
 }
 
-.footer-foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 3%;
-  gap: 1rem;
-  margin-top: 3%;
-}
-.footer-foot .foot a,
-.footer-foot .foot p {
-  font-size: 1.4rem;
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-}
-.foot {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 1rem;
-}
 /* ==========================================================
    MOBILE (768px)
 ========================================================== */
@@ -1023,10 +1179,11 @@ footer {
   }
   /* ─── FOOTER ─── */
   footer {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: var(--base-200);
     margin-top: 7rem;
+    overflow-y: hidden;
   }
   .line1 {
     height: 0.4rem;
@@ -1108,6 +1265,83 @@ footer {
 
   .foot a:hover {
     opacity: 0.6;
+  }
+  /*Shipping and Return*/
+  .shippingreturn {
+    min-height: 100vh;
+    background-color: var(--base-200);
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    margin-left: 0;
+  }
+  .shipping {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 4%;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .shipping-header h2 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 3rem;
+  }
+  .shipping h3 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-top: 4rem;
+    letter-spacing: 1px;
+    line-height: 1rem;
+  }
+
+  .shipping h4,
+  .return h4 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    letter-spacing: 0;
+    line-height: 2rem;
+  }
+  .shipping p,
+  .return p {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 1px;
+    width: 90%;
+  }
+  .shipping .bold {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: 3rem;
+    letter-spacing: 1px;
+    line-height: 3rem;
+    width: 72%;
+  }
+  .return {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 4%;
+    width: 90%;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 9rem;
+  }
+  .return h3 {
+    font-family: "PP Neue Montreal", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 4.4rem;
   }
 }
 
