@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import gsap from "gsap";
+import Lenis from "lenis";
 import { SplitText } from "gsap/SplitText";
 import { CustomEase } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -211,6 +212,31 @@ function AppInner() {
   const navRef = useRef(null);
   const heroRef = useRef(null);
   const transitionRef = useRef(null);
+  const lenisRef = useRef(null);
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1,
+    });
+
+    lenisRef.current = lenis;
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    const update = (time) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(update);
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove(update);
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     const onMove = (e) => {
